@@ -6,6 +6,18 @@
 4. Enter figure sizes. Radius for circle, one side for square.
 5. Get the answer!
 
+# Solution description
+**calculate.py takes 3 args and output result of operation**
+
+# Functions
+## Area
+**Find area of Circle or Square:**
+- circle area 12 
+
+## Perimeter
+**Find perimeter of Circle or Square:**
+- square perimeter 4
+
 # Math formulas
 ## Area
 - Circle: `S = πR²`
@@ -19,3 +31,8 @@
 - Square: `P = 4a`
 - Triangle: `P = a + b + c`
 
+# Features
+- **commit 4b7d83ef8114218f605c2a796a9a8ed5bf024e86**
+- **commit e3d1e5297adfa4764494db56279475fd024ddf39**
+- **commit db0eb74054581f1f8e2b98f2b8e1124c3a9b4948**
+- **commit cf12a146af74018e4b1954ae51c9c260f489831a**
