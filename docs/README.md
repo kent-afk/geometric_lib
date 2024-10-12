@@ -12,11 +12,20 @@
 # Functions
 ## Area
 **Find area of Circle or Square:**
-- circle area 12 
+- Call example:
+```python
+print(area(4))
+# output: 50.26548245743669
+``` 
 
 ## Perimeter
 **Find perimeter of Circle or Square:**
-- square perimeter 4
+- Call example:
+```python
+print(perimeter(5))
+# output: 20
+```
+
 
 # Math formulas
 ## Area
