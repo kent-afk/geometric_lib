@@ -1,0 +1,142 @@
+\documentclass[a4paper,30pt]{article}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage[english,russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{listings}
+
+
+
+\title{\huge \bfЛабораторная работа по \LaTeX}
+\author{\textit{ Коренчук Александр М3116}}
+\date{Октябрь 2024}
+
+\begin{document}
+\maketitle
+
+    \begin{flushright} \large
+    \emph{Преподаватель:}\\
+    \quad\quad\quadХасан \textsc{К.~А.}
+    \end{flushright}
+
+\newpage
+\begin{center}
+    \section*{Документация для \href{https://github.com/smartiqaorg/geometric_lib}{geometric lib}}
+\end{center}
+\\
+Библиотека geometric\_lib предназначена для упрощения подсчета площади и периметра фигур при помощи \textit{calculate.py}, таких как:
+
+-\textbf{Круг}
+
+-\textbf{Квадрат}
+
+-\textbf{Треугольник}
+\\
+\section*{Работа с calculate.py}
+\lstset{
+language=Python,
+basicstyle=\sffamily,
+emph={import,def,return,while,if},
+emphstyle=\color{red},
+emph={[2]area,perimeter,calc,print,input,eval,in,not},
+emphstyle=[2]\color{blue},
+emph={[3]list,len,map,int},
+emphstyle=[3]\color{cyan},
+numbers=left,
+commentstyle=\color{green},
+numberstyle=\color{gray},
+stepnumber=1,
+numbersep=5pt,
+backgroundcolor=\color{white},
+escapeinside={\%#}{*)},
+breaklines=true
+}
+
+\textit{Код calculate.py:}
+\begin{lstlisting}
+import circle
+import square
+
+figs = ['circle', 'square'] 
+funcs = ['perimeter', 'area'] 
+sizes = {} 
+
+def calc(fig, func, size): 
+	assert fig in figs 
+	assert func in funcs
+
+	result = eval(f'{fig}.{func}(*{size})') 
+	print(f'{func}of{fig}is{result}') 
+
+if __name__ == "__main__":
+	func = ''
+	fig = ''
+	size = list()
+    
+	while fig not in figs:
+		fig = input(f"Enter figure name, avaliable are {figs}:\n")
+	
+	while func not in funcs:
+		func = input(f"Enter function name, avaliable are {funcs}:\n")
+	
+	while len(size) != sizes.get(f"{func}-{fig}", 1):
+		size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square\n").split(' ')))
+	
+	calc(fig, func, size)
+\end{lstlisting}
+\\
+Данная функция позволяет считать по вводимым данным площадь и периметр всех доступных фигур
+\newpage
+\section*{Работа с circle.py }
+
+\textit{Код circle.py:}
+\begin{lstlisting}
+import math
+
+def area(r):
+    return math.pi * r * r
+
+def perimeter(r):
+    return 2 * math.pi * r
+
+
+\end{lstlisting}
+
+Данная программа принимает значение радиуса и в зависимости от операции использует определенную формулу. 
+Для площади: $\pi r^2$ , а для периметра: $2\pi r$.
+
+\section*{Работа с square.py}
+\textit{Код square.py:}
+\begin{lstlisting}
+def area(a):
+    return a * a
+
+def perimeter(a):
+    return 4 * a
+\end{lstlisting}
+
+Данная программа принимает значение стороны квадрата и может выполнять 2 операции:
+
+- Вычисление площади: $a^2$
+
+- Вычисление периметра: $4a$
+
+\section*{Работа с triangle.py:}
+\begin{lstlisting}
+def area(a, b, c):
+    return (a + b + c) / 2
+
+def perimeter(a, b, c):
+    return a + b + c
+\end{lstlisting}
+Данная программа принимает значение сторон треугольника и может выполнять 2 операции:
+
+- Вычисление площади: $\frac{(a+b+c)}{2}$
+
+- Вычисление периметра: $a+b+c$
+\section*{Ссылки:}
+\href{https://www.overleaf.com/read/vdhgsbtmrgzw#f688ed}{\textbf{Overleaf}}
+
+\end{document}
