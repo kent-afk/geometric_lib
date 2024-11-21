@@ -1,4 +1,4 @@
-name: Tests
+name: CI/CD
 on: 
   push:
     branches:
@@ -7,20 +7,34 @@ on:
     branches:
       -develop
 jobs:
-  test:
+
+  test:  
     runs-on: ubuntu-latest
 
+    env:
+      my_name: "Коренчук Александр Юрьевич"
+      my_group: "M3116"
+
     steps:
+    - name: output
+      run: |
+        echo "Name: ${{ env.my_name }}"
+        echo "Group: ${{ env.my_group }}"
+        echo "Nick: ${{ github.actor }}"
+
     - name: copy
       uses: actions/checkout@v3
       
     - name: python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'
+        python-version: '3.13'
 
     - name: pytest
-      run: pip install pytest
-        
+      run: pip install -r requirements.txt
+
+    - name: checking format
+      run:  flake8 .
+    
     - name: testing
       run: pytest
