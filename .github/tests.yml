@@ -2,10 +2,13 @@ name: CI/CD
 on: 
   push:
     branches:
-      -feats
+      - main
+      - release
   pull_request:
     branches:
-      -develop
+      - main
+      - release
+      - develop
 jobs:
 
   test:  
