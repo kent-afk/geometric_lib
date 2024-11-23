@@ -1,25 +1,21 @@
-import calculate
+from calculate import calc
 
-test_cases = [
-    {'figure': 'circle', 'function': 'area', 'size': [
-        5], 'expected': "area of circle is 78.53981633974483\n"},
-    {'figure': 'circle', 'function': 'perimeter', 'size': [
-        5], 'expected': "perimeter of circle is 31.41592653589793\n"},
-    {'figure': 'square', 'function': 'area', 'size': [
-        5], 'expected': "area of square is 25\n"},
-    {'figure': 'square', 'function': 'perimeter', 'size': [
-        5], 'expected': "perimeter of square is 20\n"},
-]
+def test_circle_area():
+    fig, func, size = "circle", "area", [10]
+    result = calc(fig, func, size)
+    assert round(result, 2) == 314.16  
 
-for case in test_cases:
-    def test_calc(capsys):
+def test_circle_perimeter():
+    fig, func, size = "circle", "perimeter", [10]
+    result = calc(fig, func, size)
+    assert round(result, 2) == 62.83
 
-        figure = case['figure']
-        function = case['function']
-        size = case['size']
-        expected = case['expected']
+def test_square_area():
+    fig, func, size = "square", "area", [5]
+    result = calc(fig, func, size)
+    assert result == 25  
 
-        calculate.calc(figure, function, size)
-
-        captured = capsys.readouterr()
-        assert captured.out == expected
+def test_square_perimeter():
+    fig, func, size = "square", "perimeter", [5]
+    result = calc(fig, func, size)
+    assert result == 20 
