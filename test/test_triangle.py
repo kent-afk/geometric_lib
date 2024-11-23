@@ -1,5 +1,5 @@
 from triangle import *
-
+import pytest
 
 def test_area():
     test_cases = [
@@ -14,13 +14,13 @@ def test_area():
 
 def test_negative_area():
     test_cases = [
-        (-12, -2, -3, False),
-        (30, 2, 1, False),
-        (15, 13, 1, False)
+        (-12, -2, -3),
+        (30, 2, 1),
+        (15, 13, 1)
     ]
-    for a, b, c, expected in test_cases:
-        res = area(a, b, c)
-        assert res == expected
+    for a, b, c in test_cases:
+        with pytest.raises(ValueError):
+            area(a,b,c)
 
 
 def test_perimeter():
@@ -36,10 +36,10 @@ def test_perimeter():
 
 def test_negative_perimeter():
     test_cases = [
-        (-12, -2, -3, False),
-        (30, 2, 1, False),
-        (15, 13, 1, False)
+        (-12, -2, -3),
+        (30, 2, 1),
+        (15, 13, 1)
     ]
-    for a, b, c, expected in test_cases:
-        res = perimeter(a, b, c)
-        assert res == expected
+    for a, b, c in test_cases:
+        with pytest.raises(ValueError):
+            perimeter(a,b,c)

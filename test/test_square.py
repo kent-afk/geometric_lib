@@ -1,5 +1,5 @@
 from square import *
-
+import pytest
 
 def test_area():
     test_cases = [
@@ -14,13 +14,14 @@ def test_area():
 
 def test_negative_area():
     test_cases = [
-        (-12, False),
-        (-235, False),
-        (-1, False)
+        (-12),
+        (-235),
+        (-1)
     ]
-    for border, expected in test_cases:
-        res = area(border)
-        assert res == expected
+    for border in test_cases:
+        with pytest.raises(ValueError):
+            area(border)
+
 
 
 def test_perimeter():
@@ -36,10 +37,10 @@ def test_perimeter():
 
 def test_negative_perimeter():
     test_cases = [
-        (-12, False),
-        (-235, False),
-        (-1, False)
+        (-12),
+        (-235),
+        (-1)
     ]
-    for border, expected in test_cases:
-        res = perimeter(border)
-        assert res == expected
+    for border in test_cases:
+        with pytest.raises(ValueError):
+            perimeter(border)
