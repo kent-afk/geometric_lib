@@ -1,6 +1,7 @@
 from square import *
 import pytest
 
+
 def test_area():
     test_cases = [
         (1, 1),
@@ -21,7 +22,6 @@ def test_negative_area():
     for border in test_cases:
         with pytest.raises(ValueError):
             area(border)
-
 
 
 def test_perimeter():

@@ -3,7 +3,8 @@ import math
 
 def area(r):
     if (r < 0):
-        raise ValueError("Can't use negative numbers")  # added verification of data
+        # added verification of data
+        raise ValueError("Can't use negative numbers")
     return math.pi * r * r
 
 

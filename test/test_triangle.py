@@ -1,6 +1,7 @@
 from triangle import *
 import pytest
 
+
 def test_area():
     test_cases = [
         (3, 4, 5, 6),
@@ -20,7 +21,7 @@ def test_negative_area():
     ]
     for a, b, c in test_cases:
         with pytest.raises(ValueError):
-            area(a,b,c)
+            area(a, b, c)
 
 
 def test_perimeter():
@@ -42,4 +43,4 @@ def test_negative_perimeter():
     ]
     for a, b, c in test_cases:
         with pytest.raises(ValueError):
-            perimeter(a,b,c)
+            perimeter(a, b, c)
